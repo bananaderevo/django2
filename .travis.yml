@@ -10,3 +10,6 @@ before_script:
 script:
   - flake8 .
   - python wowproject/manage.py test
+  - python wowproject/manage.py makemigrations
+  - python wowproject/manage.py migrate
+  - python wowproject/manage.py test myApp
