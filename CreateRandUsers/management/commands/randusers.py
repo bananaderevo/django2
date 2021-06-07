@@ -1,8 +1,12 @@
-from django.core.management.base import BaseCommand
-from django.contrib.auth.models import User
-from faker import Faker
 import random
 import string
+import sys
+
+from django.contrib.auth.models import User
+from django.core.management.base import BaseCommand
+
+from faker import Faker
+
 fake = Faker()
 
 
@@ -13,23 +17,16 @@ def createpassword():
 
 
 class Command(BaseCommand):
-    help = 'The Zen of Python'
+    help = 'Creating some users'
 
     def add_arguments(self, parser):
-        parser.add_argument(
-            '-1','-2','-3','-4','-5','-6','-7','-8','-9','-10',
-            action='store_true',
-            default=False,
-            help='Вывод короткого сообщения'
-
-        )
+        parser.add_argument('num', type=int)
 
     def handle(self, *args, **options):
-
-        for i in range():
-            User.objects.create_user(username=fake.name().replace(' ', '').lower(),
-                                        email=fake.name().replace(' ', '') + '@gmail.com',
-                                        password=createpassword())
-
-
-
+        if not 1 <= options['num'] <= 10:
+            sys.stdout.write('Error, wrong number: number should be in 1 to 10.\n')
+        else:
+            for i in range(options['num']):
+                User.objects.create_user(username=fake.name().replace(' ', '').lower(),
+                                         email=fake.name().replace(' ', '') + '@gmail.com',
+                                         password=createpassword())
