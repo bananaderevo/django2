@@ -61,8 +61,6 @@ class QuestionIndexViewTests(TestCase):
             [question],
         )
 
-
-
     def test_two_past_questions(self):
         """
         The questions index page may display multiple questions.
