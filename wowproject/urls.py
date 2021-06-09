@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('CreateRandUsers.urls')),
     path('triangle/', include('triangle.urls')),
+    path('person/', include('person.urls')),
 ]

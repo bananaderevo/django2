@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'CreateRandUsers',
     'triangle',
+    'person',
 ]
 
 MIDDLEWARE = [
