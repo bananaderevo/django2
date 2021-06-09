@@ -14,6 +14,3 @@ class Person(models.Model):
 
     class Meta:
         verbose_name = 'Person'
-
-
-

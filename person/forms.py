@@ -1,6 +1,6 @@
-from django import forms
+from django.forms import EmailInput, ModelForm, TextInput
+
 from .models import Person
-from django.forms import ModelForm, TextInput, EmailInput
 
 
 class PersonForm(ModelForm):

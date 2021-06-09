@@ -1,8 +1,9 @@
-from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
-from .models import Person
+from django.shortcuts import redirect, render
+from django.views.generic import UpdateView
+
 from .forms import PersonForm
-from django.views.generic import DetailView, UpdateView
+from .models import Person
 
 
 class UpdateDetailView(UpdateView):
@@ -30,8 +31,3 @@ def create(request):
         'form': form
     }
     return render(request, 'person/index.html', data)
-
-
-
-
-
