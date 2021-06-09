@@ -16,7 +16,7 @@ class UpdateDetailView(UpdateView):
 def create(request):
     if request.method == 'POST':
 
-        form = get_object_or_404(PersonForm(request.POST), pk=id)
+        form = PersonForm(request.POST)
 
         if form.is_valid():
 
