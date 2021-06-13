@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'CreateRandUsers',
     'triangle',
     'person',
+    'dbhw',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
