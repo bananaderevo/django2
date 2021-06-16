@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'person',
     'dbhw',
     'django_extensions',
+    'mylogs',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'mylogs.LogMiddleware.simple_middleware',
 ]
 
 ROOT_URLCONF = 'wowproject.urls'
@@ -113,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 
