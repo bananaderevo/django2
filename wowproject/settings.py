@@ -26,8 +26,15 @@ SECRET_KEY = 'django-insecure--qk#7$5)*n)9v+!q^w)vm%*u8sbwd6^6=w#f06gijq8c--xhwi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
+SILKY_AUTHENTICATION = True  # User must login
+SILKY_AUTHORISATION = True  # User must have permissions
+SILKY_PERMISSIONS = lambda user: user.is_superuser
 
 # Application definition
 
@@ -48,6 +55,15 @@ INSTALLED_APPS = [
     'mylogs',
 ]
 
+if DEBUG:
+    INSTALLED_APPS += [
+        # 'django.contrib.staticfiles',
+        'debug_toolbar',
+        'silk',
+    ]
+
+STATIC_URL = '/static/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,6 +75,12 @@ MIDDLEWARE = [
 
     'mylogs.LogMiddleware.simple_middleware',
 ]
+
+if DEBUG:
+    MIDDLEWARE += [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+        'silk.middleware.SilkyMiddleware',
+    ]
 
 ROOT_URLCONF = 'wowproject.urls'
 

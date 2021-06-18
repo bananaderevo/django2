@@ -28,5 +28,5 @@ class Command(BaseCommand):
         else:
             for i in range(options['num']):
                 User.objects.create_user(username=fake.name().replace(' ', '').lower(),
-                                         email=fake.name().replace(' ', '') + '@gmail.com',
+                                         email=fake.name().replace(' ', '').lower() + '@gmail.com',
                                          password=createpassword())
